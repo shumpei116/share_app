@@ -1,7 +1,11 @@
 <div class="container room-show">
   <div class="row">
     <div class="col-md-8">
-      <img onerror="this.onerror=null;this.src='/assets/room01.jpg';" alt="部屋画像" class="room-show-image" src="/assets/room01.jpg">
+      <% if @room.image.attached? %>
+        <%= link_to image_tag(@room.display_image(600,300)), room_path(@room)%>
+      <% else %>
+        <p>     </p>
+      <% end %>
       <div class="room-show-detile">
         <div class="room-show-detile-icon">
           <a href="/"><img class="host-icon" src="/assets/default_icon.jpg"></a>
@@ -13,6 +17,7 @@
       </div>
       <p class="room-show-detile-content"><%= @room.room_introduction %></p>
     </div>
+    
     <div class="col-md-4">
       <div class="room-show-nav">
         <h5 class="price-icon"><%= @room.room_fee %> / 日</h5>

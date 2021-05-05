@@ -14,7 +14,7 @@ class RoomsController < ApplicationController
   end
   
   def create
-    @room = Room.new(room_params)
+    @room = current_user.rooms.build(room_params)
     if @room.save
       flash[:succses] = "部屋情報を登録しました"
       redirect_to rooms_path
@@ -33,7 +33,7 @@ class RoomsController < ApplicationController
 
   private
     def room_params
-      params.require(:room).permit(:room_name, :room_introduction, :room_fee, :room_address, :room_image, :user_id)
+      params.require(:room).permit(:room_name, :room_introduction, :room_fee, :room_address, :user_id, :image)
     end
   
 end

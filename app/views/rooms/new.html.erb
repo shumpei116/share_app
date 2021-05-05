@@ -1,6 +1,6 @@
 <div class="col-lg-10 room-view">
   <div class="room-view-box">
-    <form class="new_room" id="new_room" enctype="multipart/form-data" action="/rooms" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="cTjp5GAL6bKcBr16z+N6zrYUiUc18MOIH3eO9jlMoH11rHKhWJPsLXf/VfWQ1uUcXKS622L/qAJroIwsMDtQfA==">
+    <!--<form class="new_room" id="new_room" enctype="multipart/form-data" action="/rooms" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="cTjp5GAL6bKcBr16z+N6zrYUiUc18MOIH3eO9jlMoH11rHKhWJPsLXf/VfWQ1uUcXKS622L/qAJroIwsMDtQfA==">-->
       <div class="update-content">
         <div class="row">
           <h5>ルーム情報登録</h5>
@@ -41,7 +41,7 @@
         <div class="update-content">
           <div class="row">
             <%= f.label  "ルーム画像", class: "col-md-3 required-a" %>
-            <%= f.file_field:room_image%>
+            <%= f.file_field :image %>
             <!--<label class="col-md-3 required-a" for="image">ルーム画像</label>-->
             <!--<input class="mb-4 col-md-9" placeholder="ルーム画像をアップロード" type="file" name="room[image]" id="room_image">-->
           </div>

@@ -6,6 +6,9 @@ gem 'rails'
 gem 'devise'
 gem 'bootstrap-sass'
 gem 'rails-i18n'
+gem 'active_storage_validations'
+gem 'image_processing',           '1.9.3'
+gem 'mini_magick',                '4.9.5'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '~> 1.4'
 # Use Puma as the app server
