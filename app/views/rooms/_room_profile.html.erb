@@ -1,0 +1,7 @@
+<tr>
+  <td><a href="/rooms/298"><img onerror="this.onerror=null;this.src='/assets/room01.jpg';" class="room-posts-image" src="/assets/room01.jpg"></a></td>
+  <td class="posts-name"><%= link_to room.room_name, "#" %></td>
+  <td class="posts-content"><%= room.room_introduction %></td>
+  <td class="price-icon">¥<%= room.room_fee.to_s(:delimited) %></td>
+  <td><%= room.created_at.strftime("%Y年%m月%d日 %H時%M分") %></td>
+</tr>

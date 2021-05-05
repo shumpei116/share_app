@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
-  before_action :configure_permitted_parameters, only: [:create]
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
@@ -11,15 +10,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  def create
-    @user = User.new(configure_permitted_parameters)
-    if @user.save
-      flash[:succes] = "ユーザーの登録に成功しました"
-      redirect_to new_user_registration_path
-    else
-      render "new"
-    end
-  end
+  # def create
+  #   super
+  # end
 
   # GET /resource/edit
   # def edit
@@ -45,19 +38,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-    protected
-
-    def configure_permitted_parameters
-      # strong parametersを設定し、nameを許可
-      devise_parameter_sanitizer.permit(:sign_up) do |u|
-          u.permit(:name,:email, :password, :password_confirmation)
-        end
-      
-      devise_parameter_sanitizer.permit(:sign_in) do|u|
-          u.permit(:name, :email, :password, :remember_me)
-      end
-      
-    end
+  
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
@@ -78,4 +59,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+  
+  def after_sign_up_path_for(resource)
+    root_url
+  end
 end

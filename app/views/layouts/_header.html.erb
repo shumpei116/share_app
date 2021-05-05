@@ -1,0 +1,37 @@
+<header class="header">
+  <div class="header-inner">
+    <div class="header-left-nav">
+      <a href="/"><img alt="サイトのロゴ画像" src="/assets/logo.png"></a>
+      <form action="https://presite-potepancamp-rails-02.herokuapp.com/rooms/search" accept-charset="UTF-8" method="get">
+        <div class="header-sharch d-lg-inline-block d-none">
+          エリア検索窓を入れる
+          <!--<input type="text" name="area" id="area" value="" class="form-control" placeholder="エリア">-->
+          <!--<i class="fas fa-map-marker-alt"></i>-->
+        </div>
+        <div class="header-sharch d-lg-inline-block d-none">
+          キーワード検索窓を入れる
+          <!--<input type="text" name="keyword" id="keyword" value="" class="form-control" placeholder="キーワード">-->
+          <!--<i class="fas fa-search"></i>-->
+        </div>
+        見えないサブミットボタンを配置
+        <!--<input type="submit" name="commit" value="" class="d-none" data-disable-with="">-->
+      </form>    
+    </div>
+    <div class="header-right-nav">
+      <div class="nav-item d-sm-inline-block d-none">
+        hogehoge ログインしてればユーザーネーム
+        ログインしてなければログイン・登録ボタン
+      </div>
+      <div class="nav-item">
+        <img class="mx-3 p-1 host-icon nav-trigger" alt="メニュー" src="/assets/default_icon-9263fc59c414b7228d256fc178dcb22183561357950a68f5ad086ba7ee054974.jpg">
+        <ul class="header-nav-menu">
+          <li><a href="/rooms/new">ルーム登録</a></li>
+          <li><a href="/reservations">予約済みルーム一覧</a></li>
+          <li><a href="/rooms/posts">登録済みルーム一覧</a></li>
+          <li><a href="/users/account">設定</a></li>
+          <li><a rel="nofollow" data-method="delete" href="/users/sign_out">ログアウト</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
