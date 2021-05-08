@@ -1,15 +1,18 @@
-User.create!( name:      "sample_user",
-              email:     "sample@example.com",
-              password:  "foobar",
+User.create!( name: "sample_user",
+              email: "sample@example.com",
+              introduction: "hello_room",
+              password: "foobar",
               password_confirmation: "foobar" )
 
 5.times do |n|
-  name =       "sample_user#{n+1}"
-  email =       "sample#{n+1}@example.com"
+  name = "sample_user#{n+1}"
+  email = "sample#{n+1}@example.com"
+  introduction = "hello_room_#{n+1}"
   password =  "foobar"
   password_confirmation = "foobar"
   User.create!( name:      name,
                 email:     email,
+                introduction: introduction,
                 password:  password,
                 password_confirmation: password_confirmation)
 end

@@ -11,8 +11,6 @@ class Room < ApplicationRecord
                                   size: { less_than: 5.megabytes,
                                             message: "should be less than 5MB" }
                                             
-  def display_image(height,width)
-    image.variant(resize: "#{height}x#{width}")
-  end
+  
   
 end

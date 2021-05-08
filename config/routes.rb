@@ -1,19 +1,17 @@
 Rails.application.routes.draw do
-  root 'rooms#index'
+  root "home#top"
+  
+  devise_for :users
   
   resources :rooms, only: [:index, :show, :new, :create] do
     collection do
-      get 'search', "posts"
+      get "search", "posts"
     end
   end
-    devise_for :users, controllers: {
-      registrations: 'users/registrations',
-      sessions: 'users/sessions'
-    }
+  resources :reservations, only: [:index, :show, :new, :create]
   
-  devise_scope :user do
-    get "sign_in", :to => "users/sessions#new"
-    get "sign_out", :to => "users/sessions#destroy" 
-    get "sign_up", :to => "users/registrations#new"
-  end
+  resources :users, only: :update 
+  get "users/account", to: "users#account"
+  get "users/profile", to: "users#profile"
+  
 end

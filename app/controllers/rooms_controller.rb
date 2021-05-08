@@ -7,6 +7,7 @@ class RoomsController < ApplicationController
 
   def show
     @room = Room.find(params[:id])
+    @reservation = Reservation.new
   end
 
   def new
@@ -17,7 +18,7 @@ class RoomsController < ApplicationController
     @room = current_user.rooms.build(room_params)
     if @room.save
       flash[:succses] = "部屋情報を登録しました"
-      redirect_to rooms_path
+      redirect_to @room
     else
       render "new"
       flash.now[:danger] = "登録に失敗しました"
@@ -33,7 +34,7 @@ class RoomsController < ApplicationController
 
   private
     def room_params
-      params.require(:room).permit(:room_name, :room_introduction, :room_fee, :room_address, :user_id, :image)
+      params.require(:room).permit(:room_name, :room_introduction, :room_fee, :room_address, :user_id, :image, :room_id)
     end
   
 end

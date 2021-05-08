@@ -1,0 +1,54 @@
+<div class="container reservations-new">
+    <div class="row">
+        <div class="col-6 offset-3">
+            <div class="reservations-new-nav">
+                <h4 class="reservations-new-check-content">予約内容確認</h4>
+                <h5 class="price-icon"><%= "#{ @room.room_fee.to_s(:delimited) }" %>円 / 日</h5>
+                <div class="reservations-new-date-select">
+                    <%= form_with(model: @reservation, local: true) do |f| %>
+                    <!--<form class="new_reservation" id="new_reservation" action="/reservations" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="nM8WwHCm3Q25bIPFR4FMDll7UFxy0JxSFUVunRCMqInsJFGpz1Cr16mAoyLYG5UthfSdtUWth/kv3JJ7YE55Qw==">-->
+                        
+                        <%= f.label :開始日 , class: "label" %>
+                        <%= f.hidden_field :start_day, value: params[:start_day] %>
+                        <%= params[:start_day] %>
+                        
+                        <%= f.label :終了日 , class: "label" %>
+                        <%= f.hidden_field :end_day, value: params[:end_day] %>
+                        <%= params[:end_day] %>
+                        
+                       
+                        
+                        <%= f.label :人数 , class: "label" %>
+                        <%= f.hidden_field :total_people, value: params[:total_people] %>
+                        <%= "宿泊人数：#{params[:total_people]} 人" %>
+                        
+                        <% total_fee = @room.room_fee * params[:total_people].to_i %>
+                        <%= f.label :合計金額 , class: "label" %>
+                        <%= f.hidden_field :total_fee, value: total_fee %>
+                        <%= total_fee.to_s(:delimited)%>円
+                        
+                        <%= f.hidden_field :room_id, value: @room.id %>
+                        <%= f.submit "予約を確定" %>
+                        
+                    <% end %>
+                        
+                        
+
+                        <!--<input type="hidden" value="84" name="reservation[room_id]" id="reservation_room_id">-->
+                        <!--<input type="hidden" value="430" name="reservation[user_id]" id="reservation_user_id">-->
+<!--                        <label for="start_date">開始日</label>-->
+<!--                        <input class="form-control mb-4" readonly="readonly" type="text" value="2021-05-08" name="reservation[start_date]" id="reservation_start_date">-->
+<!--                        <label for="end_date">終了日</label>-->
+<!--                        <input class="form-control mb-4" readonly="readonly" type="text" value="2021-05-14" name="reservation[end_date]" id="reservation_end_date">-->
+<!--                        <h6 class="reservations-new-check-content">使用日数 : 6日</h6>-->
+<!--                        <h6 class="reservations-new-check-content">人数 : 3人</h6>-->
+<!--                        <label for="total_amount">合計金額</label>-->
+<!--                        <input class="form-control mb-4" readonly="readonly" type="text" value="126" name="reservation[total_amount]" id="reservation_total_amount">-->
+<!--                        <p class="reservations-new-check-content">上記内容でよろしければ「予約を確定」を押してください</p>-->
+<!--                        <input type="submit" name="commit" value="予約を確定" class="btn btn-primary form-control my-3" data-disable-with="予約を確定">-->
+<!--                        <a class="btn btn-secondary form-control" href="/rooms/84">ルーム詳細に戻る</a>-->
+<!--</form>                </div>-->
+            </div>
+        </div>
+    </div>
+</div>

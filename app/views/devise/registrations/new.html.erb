@@ -2,9 +2,9 @@
   <div class="device_frame">
     <p class="my-4">新しいアカウントを作成</p>
     <div class="device_inner">
-      <%= render "devise/shared/error_messages", resource: resource %>
       
-      <%= form_for(resource, as: resource_name, url: user_registration_path(resource_name)) do |f| %>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
       <!--<form class="new_user" id="new_user" action="/users" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="kDKqsyy1rlRg0hlq/IS+8Wii2JweZh0Pl8TQUwbSSHXSfaP7fCblGZk73jZHLLwviKUKHUTpb+JKztvokWy63Q==">-->
         <div class="field form-row">
           <div class="col-2 required-b pt-2"></div>
