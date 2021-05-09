@@ -1,4 +1,5 @@
 class RoomsController < ApplicationController
+  before_action :set_q_for_room, only: [:index, :show, :new, :posts, :search]
   
 
   def index
@@ -29,6 +30,11 @@ class RoomsController < ApplicationController
   def posts
     @rooms = Room.all
   end
+  
+  def search
+    @q = Room.ransack(params[:q])
+    @rooms = @q.result(distinct: true)
+  end 
 
 
 

@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   root "home#top"
   
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+    sessions: 'users/sessions',
+  }
   
   resources :rooms, only: [:index, :show, :new, :create] do
     collection do

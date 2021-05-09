@@ -22,10 +22,9 @@
                         <%= f.hidden_field :total_people, value: params[:total_people] %>
                         <%= "宿泊人数：#{params[:total_people]} 人" %>
                         
-                        <% total_fee = @room.room_fee * params[:total_people].to_i %>
                         <%= f.label :合計金額 , class: "label" %>
-                        <%= f.hidden_field :total_fee, value: total_fee %>
-                        <%= total_fee.to_s(:delimited)%>円
+                        <%= f.hidden_field :total_fee, value: @total_fee %>
+                        <%= @total_fee.to_s(:delimited)%>円
                         
                         <%= f.hidden_field :room_id, value: @room.id %>
                         <%= f.submit "予約を確定" %>

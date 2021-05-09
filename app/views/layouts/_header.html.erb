@@ -3,20 +3,24 @@
     <%= link_to "share app", root_url, id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-left">
-        <form action="https://presite-potepancamp-rails-02.herokuapp.com/rooms/search" accept-charset="UTF-8" method="get">
+        <!--<form action="https://presite-potepancamp-rails-02.herokuapp.com/rooms/search" accept-charset="UTF-8" method="get">-->
           <div class="header-sharch d-lg-inline-block d-none">
-            エリア検索窓を入れる
+            <%= search_form_for @q, url: search_rooms_path do |f| %>
+              <%= f.search_field :room_address_cont, placeholder: "\uf3c5  エリア", class:"fa" %>
+              <% f.submit "" %>
+            <% end %>
             <!--<input type="text" name="area" id="area" value="" class="form-control" placeholder="エリア">-->
             <!--<i class="fas fa-map-marker-alt"></i>-->
-          </div>
-          <div class="header-sharch d-lg-inline-block d-none">
-            キーワード検索窓を入れる
+          <!--</div>-->
+          <!--<div class="header-sharch d-lg-inline-block d-none">-->
+            <%= search_form_for @q, url: search_rooms_path do |f| %>
+              <%= f.search_field :room_introduction_or_room_name_cont, placeholder: "\uf002  キーワード", class:"fa" %>
+              <% f.submit "" %>
+            <% end %>
             <!--<input type="text" name="keyword" id="keyword" value="" class="form-control" placeholder="キーワード">-->
             <!--<i class="fas fa-search"></i>-->
           </div>
-          見えないサブミットボタンを配置
-          <!--<input type="submit" name="commit" value="" class="d-none" data-disable-with="">-->
-        </form>  
+        <!--</form>  -->
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>

@@ -15,7 +15,7 @@
                 <div class="update-content">
                     <div class="row">
                         <label class="col-md-3" for="email">メールアドレス</label>
-                        <div class="col-md-9">hogehoge@example.com</div>
+                        <div class="col-md-9"><%= @user.email %></div>
                     </div>
                 </div>
                 <div class="update-content">
@@ -26,7 +26,7 @@
                 </div>
                 <div class="update-content">
                     <div class="row">
-                        <a class="col-md-2 btn btn-primary mx-3" href="/users/edit">編集</a>
+                        <%= link_to "編集", edit_user_registration_path,class:"btn btn-primary" %>
                     </div>
                 </div>
             </div>

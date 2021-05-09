@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
+  before_action :set_q_for_room, only: [:new, :create, :edit]
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
@@ -50,14 +51,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
   # end
 
-  # The path used after sign up.
+  # The path used after sign up for inactive accounts.
+  # def after_inactive_sign_up_path_for(resource)
+  #   root_path
+  # end
+  
+  # sign_up後のリダイレクト先の変更
   def after_sign_up_path_for(resource)
-    rooms_path
+    users_profile_path
+  end
+  # update後のリダイレクト先の変更
+  def after_update_path_for(resource)
+    users_profile_path(current_user)
   end
 
-  # The path used after sign up for inactive accounts.
-  def after_inactive_sign_up_path_for(resource)
-    root_path
-  end
 
 end
