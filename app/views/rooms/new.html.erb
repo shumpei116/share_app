@@ -1,58 +1,133 @@
-<div class="col-lg-10 room-view">
-  <div class="room-view-box">
-    <!--<form class="new_room" id="new_room" enctype="multipart/form-data" action="/rooms" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="cTjp5GAL6bKcBr16z+N6zrYUiUc18MOIH3eO9jlMoH11rHKhWJPsLXf/VfWQ1uUcXKS622L/qAJroIwsMDtQfA==">-->
-      <div class="update-content">
-        <div class="row">
-          <h5>ルーム情報登録</h5>
-        </div>
+<div class="container-fiuld room-new">
+  <div class="row">
+    <div class="col-md-2 room-nav room-nav-pc visible-md visible-lg">
+      <ul>
+        <li class="active list-unstyled"><a href="/rooms/new">基本情報</a></li>
+      </ul>
+    </div>
+    <div class="col-md-2 room-nav room-nav-mobile visible-xs visible-sm">
+      <ul>
+        <li class="active list-unstyled"><a href="/rooms/new">基本情報</a></li>
+      </ul>
+    </div>
+
+    <div class="col-md-10 room-view">
+      <div class="room-view-box">
+        <%= form_with(model: @room, local: true) do |f| %>
+          <%= render "shared/error_messages", object: f.object %>
+          <div class="update-content">
+            <div class="row">
+              <h4>ルーム情報登録</h4>
+            </div>
+          </div>
+          <div class="update-content">
+            <div class="row">
+              <div class="col-sm-3">
+                <%= f.label :room_name, "ルーム名", class: "required-a" %>
+              </div>
+              <div class="col-sm-9">
+                <%= f.text_field :room_name, class: "form-control", placeholder: "ルーム名を入力" %>
+               </div>
+            </div>
+          </div>
+          <div class="update-content">
+            <div class="row">
+              <div class="col-sm-3">
+                <%= f.label :room_introduction, "紹介", class: "required-a" %>
+              </div>
+              <div class="col-sm-9">
+                <%= f.text_area :room_introduction, class: "form-control", placeholder: "ルームの説明を入力" %>
+              </div>
+            </div>
+          </div>
+          <div class="update-content">
+            <div class="row">
+              <div class="col-sm-3">
+                <%= f.label :room_fee, "料金", class: "required-a" %>
+              </div>
+              <div class="col-sm-9">
+                <%= f.number_field:room_fee, class: "form-control", placeholder: "1日あたりの料金を入力" %>
+              </div>
+            </div>
+          </div>
+          <div class="update-content">
+            <div class="row">
+              <div class="col-sm-3">
+                <%= f.label :room_address, "住所", class: "required-a" %>
+              </div>
+              <div class="col-sm-9">
+                <%= f.text_field :room_address, class: "form-control", placeholder: "住所を入力" %>
+              </div>
+            </div>
+          </div>
+          <div class="update-content">
+            <div class="row">
+              <div class="col-sm-3">
+                <%= f.label  "ルーム画像", class: "required-a" %>
+              </div>
+              <div class="col-sm-9">
+                <%= f.file_field :image %>
+              </div>
+            </div>
+          </div>
+          <div class="update-content">
+            <div class="row">
+              <div class="col-sm-3">
+                <%= f.submit "登録", class: "btn btn-primary form-control" %>
+              </div>
+            </div>
+          </div>
+        <% end %>
       </div>
-      <%= form_with(model: @room, local: true) do |f| %>
-        <%= render "shared/error_messages", object: f.object %>
-        <div class="update-content">
-          <div class="row">
-            <%= f.label :room_name, "ルーム名", class: "col-md-3 required-a" %>
-            <%= f.text_field :room_name, class: "form-control", placeholder: "ルーム名を入力" %>
-          </div>
-        </div>
-        <div class="update-content">
-          <div class="row">
-            <%= f.label :room_introduction, "紹介", class: "col-md-3 required-a" %>
-            <%= f.text_area :room_introduction, class: "form-control", placeholder: "ルームの説明を入力" %>
-            <!--<label class="col-md-3 required-a" for="content">ルーム紹介</label>-->
-            <!--<textarea rows="5" class="form-control mb-4 col-md-9" placeholder="ルーム説明を入力" name="room[content]" id="room_content"></textarea>-->
-          </div>
-        </div>
-        <div class="update-content">
-          <div class="row">
-            <%= f.label :room_fee, "料金", class: "col-md-3 required-a" %>
-            <%= f.number_field:room_fee, class: "form-control", placeholder: "1日あたりの料金を入力" %>
-            <!--<label class="col-md-3 required-a" for="price">料金</label>-->
-            <!--<input class="form-control mb-4 col-md-9" placeholder="一日あたりの料金を入力" type="number" name="room[price]" id="room_price">-->
-          </div>
-        </div>
-        <div class="update-content">
-          <div class="row">
-            <%= f.label :room_address, "住所", class: "col-md-3 required-a" %>
-            <%= f.text_field :room_address, class: "form-control", placeholder: "住所を入力" %>
-            <!--<label class="col-md-3 required-a" for="address">住所</label>-->
-            <!--<input class="form-control mb-4 col-md-9" placeholder="住所を入力" type="text" name="room[address]" id="room_address">-->
-          </div>
-        </div>
-        <div class="update-content">
-          <div class="row">
-            <%= f.label  "ルーム画像", class: "col-md-3 required-a" %>
-            <%= f.file_field :image %>
-            <!--<label class="col-md-3 required-a" for="image">ルーム画像</label>-->
-            <!--<input class="mb-4 col-md-9" placeholder="ルーム画像をアップロード" type="file" name="room[image]" id="room_image">-->
-          </div>
-        </div>
-        <div class="update-content">
-          <div class="row">
-            <%= f.submit "登録", class: "btn btn-primary" %>
-            <!--<input type="submit" name="commit" value="登録" class="col-md-2 btn btn-primary mx-3" data-disable-with="登録">-->
-          </div>
-        </div>
-      <% end%>
-    </form>
+    </div>
   </div>
 </div>
+
+
+<!--        <div class="col-lg-10 room-view">-->
+<!--            <div class="room-view-box">-->
+<!--                <form class="new_room" id="new_room" enctype="multipart/form-data" action="/rooms" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="a2HH0K0MpCeyV8ng83wYITu/iJ8YsEn86+yUj1urFCuG4aREAsGepmUD+bzvYKhMXmwy9H9gxWqvE48CWE1ZyA==">-->
+<!--                    <div class="update-content">-->
+<!--                        <div class="row">-->
+<!--                            <h5>ルーム情報登録</h5>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="update-content">-->
+<!--                        <div class="row">-->
+<!--                            <label class="col-md-3 required-a" for="name">ルーム名</label>-->
+<!--                            <input class="form-control mb-4 col-md-9" placeholder="ルーム名を入力" type="text" name="room[name]" id="room_name">-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="update-content">-->
+<!--                        <div class="row">-->
+<!--                            <label class="col-md-3 required-a" for="content">ルーム紹介</label>-->
+<!--                            <textarea rows="5" class="form-control mb-4 col-md-9" placeholder="ルーム説明を入力" name="room[content]" id="room_content"></textarea>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="update-content">-->
+<!--                        <div class="row">-->
+<!--                            <label class="col-md-3 required-a" for="price">料金</label>-->
+<!--                            <input class="form-control mb-4 col-md-9" placeholder="一日あたりの料金を入力" type="number" name="room[price]" id="room_price">-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="update-content">-->
+<!--                        <div class="row">-->
+<!--                            <label class="col-md-3 required-a" for="address">住所</label>-->
+<!--                            <input class="form-control mb-4 col-md-9" placeholder="住所を入力" type="text" name="room[address]" id="room_address">-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="update-content">-->
+<!--                        <div class="row">-->
+<!--                            <label class="col-md-3 required-a" for="image">ルーム画像</label>-->
+<!--                            <input class="mb-4 col-md-9" placeholder="ルーム画像をアップロード" type="file" name="room[image]" id="room_image">-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="update-content">-->
+<!--                        <div class="row">-->
+<!--                            <input type="submit" name="commit" value="登録" class="col-md-2 btn btn-primary mx-3" data-disable-with="登録">-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </form></div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->

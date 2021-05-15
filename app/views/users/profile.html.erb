@@ -1,42 +1,82 @@
-  <div class="col-lg-2 user-nav user-nav-pc d-lg-block d-none">
-    <ul>
-        <li class=""><a href="/users/account">アカウント</a></li>
-        <li class="active"><a href="/users/profile">プロフィール</a></li>
-    </ul>
-</div>
-  
-  <div class="col-lg-10 user-view">
-    <div class="user-view-box">
-      <div class="update-content">
-        <div class="row">
-          <h5>プロフィール</h5>
+<div class="container-fiuld user">
+  <div class="row">
+    <div class="col-md-2 user-nav user-nav-pc visible-md visible-lg">
+      <ul>
+        <li class="list-unstyled"><%= link_to "アカウント", users_account_path %></li>
+        <li class="active list-unstyled"><%= link_to "プロフィール", users_profile_path %></li>
+      </ul>
+    </div>
+    <div class="col-md-2 user-nav user-nav-mobile visible-xs visible-sm">
+      <ul>
+        <li class="list-unstyled"><%= link_to "アカウント", users_account_path %></li>
+        <li class="active list-unstyled"><%= link_to "プロフィール", users_profile_path %></li>
+      </ul>
+    </div>
+
+    <div class="col-md-10 user-view">
+      <div class="user-view-box">
+        <div class="update-content">
+          <div class="row">
+            <h4>プロフィール</h4>
+          </div>
         </div>
+          <%= form_with(model: @user, local: true) do |f| %>
+          <%= render "shared/error_messages", object: f.object %>
+          <div class="update-content">
+            <div class="row">
+              <div class="col-xs-6 col-xs-offset-3">
+                <div class="icon-box">
+                  <% if @user.image.attached? %>
+                    <%= image_tag(@user.display_image(100,100), class:"icon-image host-icon") %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="update-content">
+            <div class="row">
+            <div class="col-md-3">
+              <%= f.label "アイコン画像", class:"required-a" %>
+              </div>
+              <div class=" col-sm-9">
+                <%= f.file_field :image %>
+              </div>
+            </div>
+          </div>
+          <div class="update-content">
+            <div class="row">
+              <div class="col-md-3">
+                <%= f.label "名前", class:"required-a" %>
+              </div>
+              <div class=" col-sm-9">
+                <%= f.text_field :name, class:"form-control" %>
+              </div>
+            </div>
+          </div>
+          <div class="update-content">
+            <div class="row">
+              <div class="col-md-3">
+                <%= f.label "自己紹介", class:"required-a" %>
+              </div>
+              <div class=" col-sm-9">
+              <%= f.text_area :introduction, rows: 5, class:"form-control" %>
+              </div>
+            </div>
+          </div>
+          <div class="update-content">
+            <div class="row">
+              <div class="col-sm-3">
+                <%= f.submit "更新", class:"btn btn-primary form-control" %>
+              </div>
+            </div>
+          </div>
+        <% end %>         
       </div>
-    <% if @user.image.attached? %>
-      <%= image_tag(@user.display_image(100,100)) %>
-    <% end %>
-                
-    <%= form_with(model: @user, local: true) do |f| %>
-    <%= render "shared/error_messages", object: f.object %>
-    
-    <%= f.label "アイコン画像" %>
-    <%= f.file_field :image %>
-
-
-  <div class="field">
-    <%= f.label "名前" %>
-    <%= f.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= f.label "自己紹介" %>
-    <%= f.text_area :introduction %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "更新", class:"btn btn-primary" %>
-  </div>
-<!--<% end %>-->
+    </div>
+   </div>
+ </div>
+ 
+ 
 <!--                <form class="edit_user" id="edit_user_430" enctype="multipart/form-data" action="/users/profile" accept-charset="UTF-8" method="post"><input type="hidden" name="_method" value="patch"><input type="hidden" name="authenticity_token" value="yQ70rddPmQNZ30WdbnpLw+ZbxjcG1CJjYSI0GaGPgPbgwb056zyLrI5Cz9rYVnsimn9yx8cXHBRY606rYa/qpQ==">-->
 <!--                    <div class="update-content">-->
 <!--                        <div class="row">-->

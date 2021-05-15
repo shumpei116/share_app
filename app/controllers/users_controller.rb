@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_q_for_room, only: [:account, :profile]
+  before_action :set_q_for_room, only: [:account, :profile, :update]
+  before_action :authenticate_user!
   
   def update
     @user = User.find(params[:id])

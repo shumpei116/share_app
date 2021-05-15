@@ -1,42 +1,41 @@
 <div class="container device">
   <div class="device_frame">
-    <p class="my-4">新しいアカウントを作成</p>
+    <h4>新しいアカウントを作成</h4>
     <div class="device_inner">
-      
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name),html: {class: 'form-horizontal'}) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
-      <!--<form class="new_user" id="new_user" action="/users" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="kDKqsyy1rlRg0hlq/IS+8Wii2JweZh0Pl8TQUwbSSHXSfaP7fCblGZk73jZHLLwviKUKHUTpb+JKztvokWy63Q==">-->
-        <div class="field form-row">
-          <div class="col-2 required-b pt-2"></div>
-          <%= f.text_field :name, class:'form-control', autofocus: true, autocomplete: "name", placeholder: "名前" %>
+        <div class="field form-row form-group">
+          <div class="col-xs-2 control-label required-a"></div>
+          <div class="col-xs-8">
+            <%= f.text_field :name, autofocus: true, autocomplete: "email", class:"form-control", placeholder: "ユーザー名" %>
+          </div>
         </div>
-        <!--<div class="field form-row">-->
-        <!--  <div class="col-2 required-b pt-2"></div>-->
-        <!--  <input autocomplete="name" class="form-control col-10 px-2" placeholder="ユーザー名" type="text" name="user[name]" id="user_name">-->
-        <!--</div>-->
-        
-        <div class="field form-row">
-          <div class="col-2 required-b pt-2"></div>
-          <%= f.email_field :email, class:'form-control', autofocus: true, autocomplete: "email", placeholder: "メールアドレス" %>
-          <!--<input autocomplete="email" class="form-control col-10 px-2" placeholder="メールアドレス" type="email" value="" name="user[email]" id="user_email">-->
+        <div class="field form-row form-group">
+          <div class="col-xs-2 control-label required-a"></div>
+          <div class="col-xs-8">
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control", placeholder: "メールアドレス" %>
+          </div>
         </div>
-        <div class="field form-row">
-          <div class="col-2 required-b pt-2"></div>
-          <%= f.password_field :password, class:'form-control', autocomplete: "new-password", placeholder: "パスワード" %>
-          <!--<input autocomplete="new-password" class="form-control col-10 px-2" placeholder="パスワード" type="password" name="user[password]" id="user_password">-->
+        <div class="field form-row form-group">
+          <div class="col-xs-2 control-label required-a"></div>
+          <div class="col-xs-8">
+            <%= f.password_field :password, autofocus: true, autocomplete: "email", class:"form-control", placeholder: "パスワード" %>
+          </div>
         </div>
-        <div class="field form-row">
-          <div class="col-2 required-b pt-2"></div>
-          <%= f.password_field :password_confirmation,class:'form-control', autocomplete: "new-password", placeholder: "パスワード確認用" %>
-          <!--<input autocomplete="new-password" class="form-control col-10 px-2" placeholder="パスワード確認" type="password" name="user[password_confirmation]" id="user_password_confirmation">-->
+        <div class="field form-row form-group">
+          <div class="col-xs-2 control-label required-a"></div>
+          <div class="col-xs-8">
+            <%= f.password_field :password_confirmation, autocomplete: "current-password", class:"form-control col-10", placeholder: "パスワード確認用" %>
+          </div>
         </div>
-        <div class="actions">
-          <%= f.submit "新しいアカウントを作成", class:'form-control btn-primary my-4' %>
-          <!--<input type="submit" name="commit" value="新しいアカウントを作成" class="form-control btn-primary my-4 " data-disable-with="新しいアカウントを作成">-->
+        <div class="actions form-group">
+          <div class="col-xs-offset-2 col-xs-8">
+            <%= f.submit "新しいアカウントを作成", class:"form-control btn-primary" %>
+          </div>
         </div>
       <% end %>
-      <%= link_to "すでにアカウントをお持ちの方はログイン", user_session_path %><br />
-<!--<a href="/users/sign_in">すでにアカウントをお持ちの方はログイン</a><br>-->
+      <%= link_to "すでにアカウントをお持ちの方はログイン", new_user_session_path %>
     </div>
   </div>
 </div>
+

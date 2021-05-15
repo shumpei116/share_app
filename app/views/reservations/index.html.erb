@@ -1,19 +1,21 @@
 <div class="container-fiuld reservations">
-    <h4 class="pb-4">予約済みルーム一覧</h4>
-    <table>
-        <thead>
-            <tr align="center">
-                <th>ルーム画像</th>
-                <th>ルーム名</th>
-                <th>ルーム紹介</th>
-                <th>合計料金</th>
-                <th>開始日</th>
-                <th>終了日</th>
-                <th>予約確定日時</th>
-            </tr>
-        </thead>
-        <tbody>
-            <%= render @reservations %>
-        </tbody>
+  <h4 class=>予約済みルーム一覧</h4>
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr align="center">
+          <th>ルーム画像</th>
+          <th>ルーム名</th>
+          <th>ルーム紹介</th>
+          <th>合計料金</th>
+          <th>開始日</th>
+          <th>終了日</th>
+          <th>予約確定日時</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render @reservations %>
+      </tbody>
     </table>
+  </div>
 </div>

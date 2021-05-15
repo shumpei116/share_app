@@ -1,5 +1,6 @@
 class RoomsController < ApplicationController
   before_action :set_q_for_room, only: [:index, :show, :new, :posts, :search]
+  before_action :authenticate_user!, only: [:new, :create, :posts]
   
 
   def index
@@ -18,7 +19,7 @@ class RoomsController < ApplicationController
   def create
     @room = current_user.rooms.build(room_params)
     if @room.save
-      flash[:succses] = "部屋情報を登録しました"
+      flash[:success] = "部屋情報を登録しました"
       redirect_to @room
     else
       render "new"
@@ -28,7 +29,7 @@ class RoomsController < ApplicationController
 
   
   def posts
-    @rooms = Room.all
+    @rooms = current_user.rooms.all
   end
   
   def search

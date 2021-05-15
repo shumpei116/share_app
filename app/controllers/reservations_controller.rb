@@ -1,5 +1,6 @@
 class ReservationsController < ApplicationController
   before_action :set_q_for_room, only: [:index, :show, :new]
+  before_action :authenticate_user!
   
   def index
     @reservations = Reservation.all
@@ -12,7 +13,8 @@ class ReservationsController < ApplicationController
   def new
     @room = Room.find_by(params[:room_id])
     @reservation = current_user.reservations.build
-    @total_fee = @room.room_fee * params[:total_people].to_i
+    @total_day = (params[:end_day].to_date - params[:start_day].to_date).to_i
+    @total_fee = @room.room_fee * params[:total_people].to_i * @total_day
   end
   
   def create
@@ -24,7 +26,7 @@ class ReservationsController < ApplicationController
     end
     
     if @reservation.save
-      flash[:succses] = "ルームの予約が完了しました"
+      flash[:success] = "ルームの予約が完了しました"
       redirect_to @reservation
     else
       @room = Room.find_by(params[:room_id])

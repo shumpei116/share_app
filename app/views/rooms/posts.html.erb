@@ -1,17 +1,19 @@
 <div class="container-fiuld room-posts">
-  <h4 class="pb-4">登録済みルーム一覧</h4>
-  <table>
-    <thead>
-      <tr align="center">
-        <th>ルーム画像</th>
-        <th>ルーム名</th>
-        <th>ルーム紹介</th>
-        <th>料金</th>
-        <th>作成日</th>
-      </tr>
-    </thead>
-    <tbody>
+  <h4 class=>登録済みルーム一覧</h4>
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr align="center">
+          <th>ルーム画像</th>
+          <th>ルーム名</th>
+          <th>ルーム紹介</th>
+          <th>料金</th>
+          <th>作成日</th>
+        </tr>
+      </thead>
+      <tbody>
       <%= render partial: 'room_profile', collection: @rooms, as: "room" %>
-    </tbody>
-  </table>
+      </tbody>
+    </table>
+  </div>
 </div>
