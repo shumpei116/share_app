@@ -413,3 +413,9 @@ img {
 .device_frame {
 box-shadow: 0 0 4px gray;
 }
+
+.room-posts-image, .reservations-image {
+  width: 240px;
+  height: 140px;
+  object-fit: cover;
+}
