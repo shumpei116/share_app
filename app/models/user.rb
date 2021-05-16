@@ -13,6 +13,10 @@ class User < ApplicationRecord
   validates :password, presence: true, on: :create
   validates :password_confirmation, presence: true, on: :create
   validates :introduction, presence: true, on: :update
-  validates :image, presence: true, on: :update
+  validates :image, attached: true, on: :update,
+                    content_type: { in: %w[image/jpeg image/gif image/png],
+                    message: "無効なファイル形式です" },
+                    size: { less_than: 5.megabytes,
+                    message: "ファイルサイズは5MB未満にしてください" }
   
 end

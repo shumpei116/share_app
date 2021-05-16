@@ -3,7 +3,7 @@
     <div class="col-xs-6 col-xs-offset-3">
       <div class="reservations-new-nav">
         <h4 class="reservations-new-check-content">予約内容確認</h4>
-        <h5 class="price-icon"><%= "#{ @room.room_fee.to_s(:delimited) }" %>円 / 日</h5>
+        <h5 class="price-icon">¥<%= "#{ @room.room_fee.to_s(:delimited) }" %>円 / 日</h5>
         <div class="reservations-new-date-select">
           <%= form_with(model: @reservation, local: true) do |f| %>
             <%= f.hidden_field :room_id, value: @room.id %>

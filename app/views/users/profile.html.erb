@@ -27,7 +27,9 @@
               <div class="col-xs-6 col-xs-offset-3">
                 <div class="icon-box">
                   <% if @user.image.attached? %>
-                    <%= image_tag(@user.display_image(100,100), class:"icon-image host-icon") %>
+                    <%= image_tag(@user.display_image(100,100), class:"icon-image host-icon", alt: "ユーザー画像") %>
+                  <% else %>
+                    <%= image_tag("profile.jpg", size: '40x40',class:"icon-image host-icon", alt: "ユーザー画像") %>
                   <% end %>
                 </div>
               </div>
@@ -75,40 +77,3 @@
     </div>
    </div>
  </div>
- 
- 
-<!--                <form class="edit_user" id="edit_user_430" enctype="multipart/form-data" action="/users/profile" accept-charset="UTF-8" method="post"><input type="hidden" name="_method" value="patch"><input type="hidden" name="authenticity_token" value="yQ70rddPmQNZ30WdbnpLw+ZbxjcG1CJjYSI0GaGPgPbgwb056zyLrI5Cz9rYVnsimn9yx8cXHBRY606rYa/qpQ==">-->
-<!--                    <div class="update-content">-->
-<!--                        <div class="row">-->
-<!--                            <div class="col-md-6 offset-md-3">-->
-<!--                                <div class="icon-box">-->
-<!--                                    <img alt="アイコン画像" class="icon-image host-icon" src="/uploads/user/image/430/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2021-05-05_8.31.41.png">-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="update-content">-->
-<!--                        <div class="row">-->
-<!--                            <label class="col-md-3 required-a" for="image">アイコン画像</label>-->
-<!--                            <input class="mb-4 col-md-9" placeholder="アイコン画像をアップロード" type="file" name="user[image]" id="user_image">-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="update-content">-->
-<!--                        <div class="row">-->
-<!--                            <label class="col-md-3 required-a" for="name">名前</label>-->
-<!--                            <input class="form-control mb-4 col-md-9" placeholder="名前を入力" type="text" value="hogehogehoge" name="user[name]" id="user_name">-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="update-content">-->
-<!--                        <div class="row">-->
-<!--                            <label class="col-md-3 required-a" for="introduction">自己紹介</label>-->
-<!--                            <textarea rows="5" class="form-control mb-4 col-md-9" placeholder="自己紹介を入力" name="user[introduction]" id="user_introduction">hello world</textarea>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="update-content">-->
-<!--                        <div class="row">-->
-<!--                            <input type="submit" name="commit" value="更新" class="col-md-2 btn btn-primary mx-3" data-disable-with="更新">-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--</form>            </div>-->
-<!--        </div>-->

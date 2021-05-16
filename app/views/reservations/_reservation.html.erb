@@ -1,5 +1,5 @@
 <tr>
-  <td class="reservations-image"><%= link_to image_tag(reservation.room.display_image(300,150)) , reservation.room %></td>
+  <td class="reservations-image"><%= link_to image_tag(reservation.room.display_image(300,150), alt: "ルーム画像") , reservation.room %></td>
   <td class="posts-name"><%= link_to reservation.room.room_name, reservation.room %></td>
   <td class="posts-content"><%= reservation.room.room_introduction%></td>
   <td class="price-icon"><%= reservation.total_fee.to_s(:delimited) %> 円</td>

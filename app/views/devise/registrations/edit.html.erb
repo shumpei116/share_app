@@ -1,92 +1,43 @@
 <div class="container device">
-  <div class="device_frame">
+  <div class="device_frame ">
     <h2 class="mb-3">アカウント編集</h2>
     <div class="device_inner">
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
-      <!--<form class="edit_user" id="edit_user" action="/users" accept-charset="UTF-8" method="post"><input type="hidden" name="_method" value="put"><input type="hidden" name="authenticity_token" value="fU1uRwY7YYq0JXfOoPf8kBkENb9U43hgCLmfinqGrc3mSiePROCtAJRVb+DIIsFmnmjCLltmm+G2R5r0WPtX0Q==">-->
-        
         <div class="field">
           <div class="form-group">
             <%= f.label "メールアドレス" %><br />
-            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-            <!--<label for="user_email">メールアドレス</label>-->
-            <!--<input autofocus="autofocus" autocomplete="email" class="form-control" placeholder="メールアドレスを入力してください" type="email" value="hogehoge@example.com" name="user[email]" id="user_email">-->
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
           </div>
         </div>
+        
         <div class="field">
           <div class="form-group">
             <%= f.label "変更後のパスワード　(変更する場合のみ入力)" %>
-            <%= f.password_field :password, autocomplete: "new-password" %>
-            <!--<label for="user_password">変更後パスワード（変更する場合のみ入力）</label>-->
-            <!--<input autocomplete="new-password" class="form-control" type="password" name="user[password]" id="user_password">-->
+            <%= f.password_field :password, autocomplete: "new-password", class:"form-control" %>
           </div>
         </div>
 
         <div class="field">
           <div class="form-group">
             <%= f.label "パスワード確認用　（変更する場合のみ入力）" %>
-            <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-            <!--<label for="user_password_confirmation">パスワード確認用（変更する場合のみ入力）</label>-->
-            <!--<input autocomplete="new-password" class="form-control" type="password" name="user[password_confirmation]" id="user_password_confirmation">-->
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control" %>
           </div>
         </div>
+        
         <div class="field">
           <%= f.label "現在のパスワード" %> <br />
-          <%= f.password_field :current_password, autocomplete: "current-password", placeholder: "現在のパスワードを入力"  %>
-          <!--<label for="user_current_password">現在のパスワード</label>-->
-          <!--<input autocomplete="current-password" class="form-control" placeholder="現在のパスワードを入力" type="password" name="user[current_password]" id="user_current_password">-->
+          <%= f.password_field :current_password, autocomplete: "current-password", placeholder: "現在のパスワードを入力", class:"form-control" %>
         </div>
+        
         <div class="actions">
-          <%= f.submit "更新", class:"btn btn-primary" %>
-          <!--<input type="submit" name="commit" value="更新" class="form-control btn-primary my-4" data-disable-with="更新">-->
+          <%= f.submit "更新", class:"btn btn-primary my-4 form-control" %>
         </div>
+        
         <div class="actions">
-          <%=link_to users_account_path do %>
-            <button class="btn btn-default" >戻る</button>
-          <%end%>
-
-          <!--<a class="btn btn-outline-secondary form-control" href="/users/account">戻る</a>-->
+          <%=link_to "戻る", users_account_path, class:"btn btn-default form-control" %>
         </div>
-<% end %> 
-</div> 
+      <% end %> 
+    </div> 
   </div>
 </div>
-
-<h2>アカウント編集</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label "メールアドレス" %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label "変更後のパスワード　(変更する場合のみ入力)" %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label "パスワード確認用　（変更する場合のみ入力）" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label "現在のパスワード" %> <br />
-    <%= f.password_field :current_password, autocomplete: "current-password", placeholder: "現在のパスワードを入力"  %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "更新", class:"btn btn-primary" %>
-  </div>
-<% end %>
-  
-  <%=link_to users_account_path do %>
-    <button class="btn btn-default" >戻る</button>
-  <%end%>

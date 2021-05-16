@@ -2,7 +2,7 @@
   <div class="room-frame-inner">
     <%= link_to room_path(room), class:"room-list" do %>
       <div class="room-image-out">
-        <%= image_tag(room.display_image(300,800)) %>
+        <%= image_tag(room.display_image(300,800),class:"room-image", alt: "ルーム画像") %>
       </div>
       <div class="room-profile">
         <p class="room-profile-name"><%= room.room_name %></p>

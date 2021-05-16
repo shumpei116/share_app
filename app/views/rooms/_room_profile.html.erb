@@ -1,5 +1,5 @@
 <tr>
-  <td class="room-posts-image"><%= link_to image_tag(room.display_image(300,150)), room_path(room) %></td>
+  <td class="room-posts-image"><%= link_to image_tag(room.display_image(300,150), alt: "ルーム画像"), room_path(room) %></td>
   <td class="posts-name"><%= link_to room.room_name, room_path(room) %></td>
   <td class="posts-content"><%= room.room_introduction %></td>
   <td class="price-icon">¥<%= room.room_fee.to_s(:delimited) %></td>

@@ -12,8 +12,8 @@ Rails.application.routes.draw do
     end
   end
   resources :reservations, only: [:index, :show, :new, :create]
-  
   resources :users, only: :update 
+  
   get "users/account", to: "users#account"
   get "users/profile", to: "users#profile"
   

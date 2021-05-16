@@ -1,5 +1,5 @@
 class RoomsController < ApplicationController
-  before_action :set_q_for_room, only: [:index, :show, :new, :posts, :search]
+  before_action :set_q_for_room, only: [:index, :show, :new, :create, :posts, :search]
   before_action :authenticate_user!, only: [:new, :create, :posts]
   
 

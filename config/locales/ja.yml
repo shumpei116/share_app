@@ -1,16 +1,4 @@
 ja:
-    activerecord:
-      models:
-        room: ルーム
-      attributes:
-        room:
-          room_name: ルーム名
-          room_introduction: 紹介
-          room_fee: 料金
-          room_adress: 住所
-          room_image: 部屋画像
-            
-ja:
   activerecord:
     attributes:
       user:
@@ -37,8 +25,18 @@ ja:
         unconfirmed_email: 未確認Eメール
         unlock_token: ロック解除用トークン
         updated_at: 更新日
+        name: ユーザー名
+        introduction: 自己紹介
+        image: 画像
+      room:
+        room_name: ルーム名
+        room_introduction: ルーム紹介
+        room_fee: 料金
+        room_address: 住所
+        image: ルーム画像
     models:
       user: ユーザー
+      room: ルーム
   devise:
     confirmations:
       confirmed: メールアドレスが確認できました。

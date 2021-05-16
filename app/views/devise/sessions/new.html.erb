@@ -4,19 +4,19 @@
     <div class="device_inner">
       <%= form_for(resource, as: resource_name, url: session_path(resource_name),html: {class: 'form-horizontal'}) do |f| %>
         <div class="field form-row form-group">
-          <div class="col-xs-2 control-label required-a"></div>
+          <div class="col-xs-3 control-label required-a"></div>
           <div class="col-xs-8">
             <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control", placeholder: "メールアドレス" %>
           </div>
         </div>
         <div class="field form-row form-group">
-          <div class="col-xs-2 control-label required-a"></div>
+          <div class="col-xs-3 control-label required-a"></div>
           <div class="col-xs-8">
             <%= f.password_field :password, autocomplete: "current-password", class:"form-control col-10", placeholder: "パスワード" %>
           </div>
         </div>
         <div class="actions form-group">
-          <div class="col-xs-offset-2 col-xs-8">
+          <div class="col-xs-offset-1 col-xs-10">
             <%= f.submit "ログイン", class:"form-control btn-primary" %>
           </div>
         </div>

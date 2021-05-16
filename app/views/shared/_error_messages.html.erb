@@ -1,7 +1,7 @@
 <% if object.errors.any? %>
   <div id="error_explanation">
     <div class="alert alert-danger">
-      <%= object.errors.count %>個の入力エラーがあります！
+      <%= object.errors.count %>箇所の入力エラーがあります！
     </div>
     <ul>
     <% object.errors.full_messages.each do |msg| %>
