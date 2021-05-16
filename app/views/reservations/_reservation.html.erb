@@ -1,0 +1,9 @@
+<tr>
+  <td><%= link_to image_tag(reservation.room.image, class: "reservations-image", alt: "ルーム画像") , reservation.room %></td>
+  <td class="posts-name"><%= link_to reservation.room.room_name, reservation.room %></td>
+  <td class="posts-content"><%= reservation.room.room_introduction%></td>
+  <td class="price-icon"><%= reservation.total_fee.to_s(:delimited) %> 円</td>
+  <td><%= reservation.start_day.strftime("%Y年%m月%d日") %></td>
+  <td><%= reservation.end_day.strftime("%Y年%m月%d日") %></td>
+  <td><%= reservation.created_at.strftime("%Y年%m月%d日 %H時%M分")  %></td>
+</tr>

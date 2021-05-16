@@ -1,0 +1,79 @@
+<div class="container-fiuld user">
+  <div class="row">
+    <div class="col-md-2 user-nav user-nav-pc visible-md visible-lg">
+      <ul>
+        <li class="list-unstyled"><%= link_to "アカウント", users_account_path %></li>
+        <li class="active list-unstyled"><%= link_to "プロフィール", users_profile_path %></li>
+      </ul>
+    </div>
+    <div class="col-md-2 user-nav user-nav-mobile visible-xs visible-sm">
+      <ul>
+        <li class="list-unstyled"><%= link_to "アカウント", users_account_path %></li>
+        <li class="active list-unstyled"><%= link_to "プロフィール", users_profile_path %></li>
+      </ul>
+    </div>
+
+    <div class="col-md-10 user-view">
+      <div class="user-view-box">
+        <div class="update-content">
+          <div class="row">
+            <h4>プロフィール</h4>
+          </div>
+        </div>
+          <%= form_with(model: @user, local: true) do |f| %>
+          <%= render "shared/error_messages", object: f.object %>
+          <div class="update-content">
+            <div class="row">
+              <div class="col-xs-6 col-xs-offset-3">
+                <div class="icon-box">
+                  <% if @user.image.attached? %>
+                    <%= image_tag(@user.display_image(100,100), class:"icon-image host-icon", alt: "ユーザー画像") %>
+                  <% else %>
+                    <%= image_tag("profile.jpg", size: '40x40',class:"icon-image host-icon", alt: "ユーザー画像") %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="update-content">
+            <div class="row">
+            <div class="col-md-3">
+              <%= f.label "アイコン画像", class:"required-a" %>
+              </div>
+              <div class=" col-sm-9">
+                <%= f.file_field :image %>
+              </div>
+            </div>
+          </div>
+          <div class="update-content">
+            <div class="row">
+              <div class="col-md-3">
+                <%= f.label "名前", class:"required-a" %>
+              </div>
+              <div class=" col-sm-9">
+                <%= f.text_field :name, class:"form-control" %>
+              </div>
+            </div>
+          </div>
+          <div class="update-content">
+            <div class="row">
+              <div class="col-md-3">
+                <%= f.label "自己紹介", class:"required-a" %>
+              </div>
+              <div class=" col-sm-9">
+              <%= f.text_area :introduction, rows: 5, class:"form-control" %>
+              </div>
+            </div>
+          </div>
+          <div class="update-content">
+            <div class="row">
+              <div class="col-sm-3">
+                <%= f.submit "更新", class:"btn btn-primary form-control" %>
+              </div>
+            </div>
+          </div>
+        <% end %>         
+      </div>
+    </div>
+   </div>
+ </div>

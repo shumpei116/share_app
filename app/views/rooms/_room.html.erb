@@ -1,0 +1,14 @@
+<div class="col-sm-6 col-md-4 col-lg-3">
+  <div class="room-frame-inner">
+    <%= link_to room_path(room), class:"room-list" do %>
+      <div class="room-image-out">
+        <%= image_tag(room.display_image(300,800),class:"room-image", alt: "ルーム画像") %>
+      </div>
+      <div class="room-profile">
+        <p class="room-profile-name"><%= room.room_name %></p>
+        <p class="room-profile-city"><%= room.room_address %></p>
+        <p class="room-profile-price price-icon">¥<%= room.room_fee.to_s(:delimited)  %></p>
+      </div>
+    <% end %>
+  </div>
+</div>

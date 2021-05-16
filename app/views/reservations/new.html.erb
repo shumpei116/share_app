@@ -1,0 +1,32 @@
+<div class="container reservations-new">
+  <div class="row">
+    <div class="col-xs-6 col-xs-offset-3">
+      <div class="reservations-new-nav">
+        <h4 class="reservations-new-check-content">予約内容確認</h4>
+        <h5 class="price-icon">¥<%= "#{ @room.room_fee.to_s(:delimited) }" %>円 / 日</h5>
+        <div class="reservations-new-date-select">
+          <%= form_with(model: @reservation, local: true) do |f| %>
+            <%= f.hidden_field :room_id, value: @room.id %>
+            <%= f.hidden_field :total_people, value: params[:total_people] %>
+            
+            <%= f.label :start_day, "開始日" %>
+            <%= f.text_field :start_day, value: params[:start_day], class:"form-control mb-4", readonly: true %>
+            
+            <%= f.label :end_day, "終了日" %>
+            <%= f.text_field :end_day, value: params[:end_day], class:"form-control mb-4", readonly: true %>
+            
+            <h6 class="reservations-new-check-content"><%= "宿泊日数: #{@total_day} 日" %></h6>
+            <h6 class="reservations-new-check-content"><%= "宿泊人数：#{params[:total_people]} 人" %></h6>
+            
+            <%= f.label :total_fee, "合計金額" %>
+            <%= f.text_field :total_fee, value: @total_fee, class:"form-control mb-4", readonly: true %>
+            
+            <p class="reservations-new-check-content">上記内容でよろしければ「予約を確定」を押してください</p>
+            <%= f.submit "予約を確定", class:"btn btn-primary form-control my-3" %>
+            <%= link_to "ルーム詳細に戻る", room_path(@room), class:"btn btn-default form-control"%>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
